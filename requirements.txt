@@ -6,7 +6,7 @@ blessed==1.20.0
 blinker==1.6.2
 blis==0.7.9
 boto3==1.26.126
-botocore==1.29.99
+botocore==1.29.126
 cached-property==1.5.2
 catalogue==2.0.8
 cement==2.8.2
@@ -30,7 +30,6 @@ filelock==3.12.0
 Flask==2.3.2
 Flask-Cors==3.0.10
 fsspec==2023.4.0
-gssapi==1.8.2
 huggingface-hub==0.14.1
 idna==3.4
 itsdangerous==2.1.2
