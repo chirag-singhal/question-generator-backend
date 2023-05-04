@@ -2,14 +2,14 @@ from flask import Flask, request, jsonify
 from generate_questions import generate_question, get_entities
 from flask_cors import cross_origin
 
-app = Flask(__name__)
+application = Flask(__name__)
 
-@app.route('/', methods=['GET'])
+@application.route('/', methods=['GET'])
 @cross_origin()
 def printHello():
     return 'Hello World'
 
-@app.route('/generate_questions', methods=['POST'])
+@application.route('/generate_questions', methods=['POST'])
 @cross_origin()
 def generate_questions():
     try:
