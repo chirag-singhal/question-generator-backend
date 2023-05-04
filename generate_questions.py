@@ -12,22 +12,23 @@ s3 = boto3.resource('s3')
 bucket_name = 'glyphic-ai'
 directory_name = 'checkpoint-11000'
 
-# Specify the local directory on Elastic Beanstalk where you want to save the checkpoint files
-local_directory = '/checkpoint-11000'
-
 # Create the local directory if it doesn't exist
-if not os.path.exists(local_directory):
-    os.makedirs(local_directory)
+if not os.path.exists('./checkpoint-11000'):
+    os.makedirs('./checkpoint-11000')
+
+# Specify the local directory on Elastic Beanstalk where you want to save the checkpoint files
+local_directory = './'
+
 
 # Download all files in the S3 directory to the local directory
 bucket = s3.Bucket(bucket_name)
 for obj in bucket.objects.filter(Prefix=directory_name):
     if not os.path.exists(os.path.dirname(local_directory + obj.key)):
         os.makedirs(os.path.dirname(local_directory + obj.key))
-    bucket.download_file(obj.key, local_directory + obj.key.split("/")[-1])
+        bucket.download_file(obj.key, local_directory + obj.key)
 
 
-ckpt_path = '/checkpoint-11000'
+ckpt_path = './checkpoint-11000'
 model = AutoModelForSeq2SeqLM.from_pretrained(ckpt_path, force_download=False)
 
 model_checkpoint = "t5-base"
