@@ -25,7 +25,7 @@ bucket = s3.Bucket(bucket_name)
 for obj in bucket.objects.filter(Prefix=directory_name):
     if not os.path.exists(os.path.dirname(local_directory + obj.key)):
         os.makedirs(os.path.dirname(local_directory + obj.key))
-        bucket.download_file(obj.key, local_directory + obj.key)
+    bucket.download_file(obj.key, local_directory + obj.key)
 
 
 ckpt_path = './checkpoint-11000'
