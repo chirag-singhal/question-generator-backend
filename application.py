@@ -4,6 +4,11 @@ from flask_cors import cross_origin
 
 app = Flask(__name__)
 
+@app.route('/', methods=['GET'])
+@cross_origin()
+def printHello():
+    return 'Hello World'
+
 @app.route('/generate_questions', methods=['POST'])
 @cross_origin()
 def generate_questions():
