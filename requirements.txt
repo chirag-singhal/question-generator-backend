@@ -69,7 +69,7 @@ termcolor
 texttable
 thinc
 tokenizers
-torch
+torch==1.9.0
 tqdm
 transformers
 typer
